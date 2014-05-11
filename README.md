@@ -6,6 +6,10 @@ asimov-server
 
 **A high performance static server cluster plugin for [asimov.js](http://asimovjs.org)**
 
+## How it works
+
+The server is built as a high-performance companion for the [asimov-pages](http://asimovjs.org/docs/pages) static site generator, and uses a cluster of workers to serve static pages. To customize the request/response flow, you can use express.js compatible middleware.
+
 ## Getting started
 
 ### Install from npm
@@ -19,7 +23,13 @@ var server = require('asimov-server');
 asimov.use(server());
 ```
 
-## Clustered...
+## Options
+
+```javascript
+asimov.use(server({
+  'src': 'build' // source directory for static pages and assets
+}));
+```
 
 ## Middleware
 
