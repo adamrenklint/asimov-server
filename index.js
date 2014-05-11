@@ -1,5 +1,6 @@
 var asimov = require('asimov');
 var middleware = require('./lib/init/middleware');
+var cluster = require('./lib/init/cluster');
 
 module.exports = function (options) {
 
@@ -17,7 +18,10 @@ module.exports = function (options) {
       asimov.addSequence(name);
     });
 
-    asimov.init(middleware(options));
+
+    asimov
+      .init(middleware(options))
+      .init(cluster(options));
   };
 };
 

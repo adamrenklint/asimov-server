@@ -33,7 +33,7 @@ asimov.use(server({
 
 ## Middleware
 
-A middleware file exports a middleware factory, to which you can pass options. It should return the actual middleware callback, which is normal express.js middleware.
+A middleware file exports a middleware factory, to which you can pass options. The factory function should return the actual middleware callback, which is normal express.js middleware.
 
 ```javascript
 module.exports = function myMiddlewareFactory (options) {
