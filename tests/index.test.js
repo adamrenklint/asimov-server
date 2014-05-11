@@ -7,4 +7,15 @@ test('module index', function (test) {
 
     expect(index.start).to.be.a('function');
   });
+
+  [
+    'Cluster',
+    'Worker'
+  ].forEach(function (name) {
+
+    test.it('should expose the "' + name + '" class', function () {
+
+      expect(index[name]).to.be.a('function');
+    });
+  });
 });
