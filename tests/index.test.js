@@ -13,7 +13,7 @@ test('module index', function (test) {
     'Worker'
   ].forEach(function (name) {
 
-    test.it('should expose the "' + name + '" class', function () {
+    test.it('should export the "' + name + '" class', function () {
 
       expect(index[name]).to.be.a('function');
     });
