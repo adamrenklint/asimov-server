@@ -23,7 +23,8 @@ module.exports = function (options) {
 
 // Export public classes
 [
-  // 'models/Page'
+  'Cluster',
+  'Worker'
 ].forEach(function (path) {
 
   var name = path.split('/').pop();
