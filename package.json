@@ -1,0 +1,24 @@
+{
+  "name": "asimov-server",
+  "version": "0.0.1",
+  "homepage": "http://asimovjs.org/docs/server",
+  "description": "High performance static server for asimov.js",
+  "author": "Adam Renklint <adam@renklint.com> (http://adamrenklint.com)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/asimov/bin/asimov test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adamrenklint/asimov-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamrenklint/asimov-server/issues"
+  },
+  "dependencies": {
+    "asimov": "^0.18.0-beta6"
+  },
+  "devDependencies": {
+    "asimov-test": "^0.1.1"
+  }
+}
