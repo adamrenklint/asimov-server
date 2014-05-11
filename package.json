@@ -2,7 +2,7 @@
   "name": "asimov-server",
   "version": "0.0.1",
   "homepage": "http://asimovjs.org/docs/server",
-  "description": "High performance static server for asimov.js",
+  "description": "High performance static server cluster plugin for asimov.js",
   "author": "Adam Renklint <adam@renklint.com> (http://adamrenklint.com)",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/adamrenklint/asimov-server/issues"
   },
   "dependencies": {
-    "asimov": "^0.18.0-beta6"
+    "asimov": "^0.18.0-beta7"
   },
   "devDependencies": {
     "asimov-test": "^0.1.1"
