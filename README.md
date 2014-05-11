@@ -1,8 +1,8 @@
 asimov-server
 ================
 
-[![NPM version](https://badge.fury.io/js/asimov-pages.png)](http://badge.fury.io/js/asimov-pages)
-[![Build Status](https://travis-ci.org/adamrenklint/asimov-pages.png?branch=master)](https://travis-ci.org/adamrenklint/asimov-pages) [![Code Climate](https://codeclimate.com/github/adamrenklint/asimov-pages.png)](https://codeclimate.com/github/adamrenklint/asimov-pages) [![Dependency Status](https://david-dm.org/adamrenklint/asimov-pages.png?theme=shields.io)](https://david-dm.org/adamrenklint/asimov-pages)
+[![NPM version](https://badge.fury.io/js/asimov-server.png)](http://badge.fury.io/js/asimov-server)
+[![Build Status](https://travis-ci.org/adamrenklint/asimov-server.png?branch=master)](https://travis-ci.org/adamrenklint/asimov-server) [![Code Climate](https://codeclimate.com/github/adamrenklint/asimov-server.png)](https://codeclimate.com/github/adamrenklint/asimov-server) [![Dependency Status](https://david-dm.org/adamrenklint/asimov-server.png?theme=shields.io)](https://david-dm.org/adamrenklint/asimov-server)
 
 **A high performance static server cluster plugin for [asimov.js](http://asimovjs.org)**
 
