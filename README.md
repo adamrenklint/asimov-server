@@ -72,6 +72,23 @@ asimov.premiddleware(overrideEverything());
 
 Beware, at this point the response will not have any caching headers, so if you send a response, you need to take care of that on your own. Pre-middleware is in most cases the wrong choice, and you should register your middleware with the normal ```asimov.middleware()``` method.
 
+---
+
+## Develop
+
+First, fork this repo. Obviously.
+
+### Install dependencies
+
+    $ npm install
+
+### Run tests
+
+    $ npm test
+
+### Publish to NPM
+
+    $ make publish
 
 ---
 
