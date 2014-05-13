@@ -1,4 +1,8 @@
+var cl = require('cluster');
+global.muteLog = cl.isWorker;
+
 var asimov = require('asimov');
+asimov.isWorker = cl.isWorker;
 var middleware = require('./lib/init/middleware');
 var cluster = require('./lib/init/cluster');
 
@@ -10,6 +14,8 @@ module.exports = function (options) {
 
   return function () {
 
+    asimov.config.serverLogDelay = asimov.config.serverLogDelay || 'x';
+
     [
       'premiddleware',
       'middleware',
@@ -18,10 +24,9 @@ module.exports = function (options) {
       asimov.addSequence(name);
     });
 
-
     asimov
       .init(middleware(options))
-      .init(cluster(options));
+      .postinit(cluster(options));
   };
 };
 
@@ -36,6 +41,7 @@ module.exports = function (options) {
 });
 
 module.exports.start = function start (next) {
+
   asimov
     .use(module.exports())
     .start(next);

@@ -8,6 +8,14 @@
   "scripts": {
     "test": "node node_modules/asimov/bin/asimov test"
   },
+  "keywords": [
+    "asimov",
+    "asimov.js",
+    "asimov-plugin",
+    "cluster",
+    "static",
+    "server"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:adamrenklint/asimov-server.git"
@@ -16,7 +24,8 @@
     "url": "https://github.com/adamrenklint/asimov-server/issues"
   },
   "dependencies": {
-    "asimov": "^0.18.0-beta9"
+    "asimov": "^0.18.0-beta11",
+    "cluster": "^0.7.7"
   },
   "devDependencies": {
     "asimov-test": "^0.1.1"

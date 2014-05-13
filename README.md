@@ -54,23 +54,23 @@ asimov.middleware(myMiddleware());
 
 ### Pre and post middleware
 
-It is possible to hook into several different steps in the request handling lifecycle. For most usecases, normal middleware is just fine. These are executed right before the static server checks the filesystem and returns any public files it finds.
+It is possible to hook into several different steps in the request handling lifecycle.
 
-But let's say you have a middleware that executes an http request, and renders a page or json response. Having each static page and asset request go through this would slow things down, so a better idea would be to register this as post middleware.
-
-```javascript
-var myApiProxy = require('myApiProxy');
-asimov.postmiddleware(myApiProxy());
-```
-
-You can also register middleware that executes before any other middleware, and possibly override the entire middleware chain.
+Pre-middleware is executed before any other middleware and could be used to override the enire normal request lifecycle and middleware chain.
 
 ```javascript
 var overrideEverything = require('overrideEverything');
 asimov.premiddleware(overrideEverything());
 ```
 
-Beware, at this point the response will not have any caching headers, so if you send a response, you need to take care of that on your own. Pre-middleware is in most cases the wrong choice, and you should register your middleware with the normal ```asimov.middleware()``` method.
+You can also hook in middleware right after the server has tried to serve content from the static source folder, if no content was found. With this you could, for example, add a custom logger to keep track of the amount of served 404s.
+
+```javascript
+var myCustom404Logger = require('myCustom404Logger');
+asimov.postmiddleware(myCustom404Logger());
+```
+
+Beware, when the pre-middleware is executed, the response will not have been equiped with any caching headers yet, so if you send a response, you might want to take of this on your own.
 
 ---
 
@@ -86,7 +86,7 @@ First, fork this repo. Obviously.
 
     $ npm test
 
-### Publish to NPM
+### Publish to npm
 
     $ make publish
 
