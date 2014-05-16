@@ -6,21 +6,39 @@ asimov-server
 
 **High performance static server cluster plugin for [asimov.js](http://asimovjs.org)**
 
-## How it works
+Made by [Adam Renklint](http://adamrenklint.com), Berlin 2014. [MIT licensed](https://github.com/adamrenklint/asimov-server/blob/master/LICENSE).
 
-The server is built as a high-performance companion for the [asimov-pages](http://asimovjs.org/docs/pages) static site generator, and uses a cluster of workers to serve static pages. To customize the request/response flow, you can use express.js compatible middleware.
+[asimov-server](http://asimovjs.org/docs/server) is built as a high-performance companion for the [asimov-pages](http://asimovjs.org/docs/pages) static site generator, and uses a cluster of workers to serve static pages. To customize the request/response flow, you can use express.js compatible middleware.
 
 ## Getting started
 
-### Install from npm
+First things first - create a new, [basic project](https://github.com/adamrenklint/asimov.js/blob/master/README.md#create-a-new-project). Then install asimov-server from npm.
 
-    $ npm install --save asimov-server
+```
+$ npm install --save asimov-server
+```
 
-### Include in your project
+To use the server plugin, add it in your app's plugin hook, in ```index.js``` and start your app with ```asimov``` or ```node index.js```.
 
 ```javascript
+var asimov = require('asimov');
 var server = require('asimov-server');
-asimov.use(server());
+
+// Keeping all our setup in this function allows our
+// app to be used as a plugin by other projects
+module.exports = function plugin (options) {
+  asimov.use(server(options));
+};
+
+// The project bootstrap, using our app as a plugin
+module.exports.start = function bootstrap () {
+  asimov
+    .use(module.exports())
+    .start();
+};
+
+// If we are not loaded as a plugin, start the app
+module.parent || module.exports.start();
 ```
 
 ## Options
@@ -33,7 +51,7 @@ asimov.use(server({
 
 ## Middleware
 
-A middleware file exports a middleware factory, to which you can pass options. The factory function should return the actual middleware callback, which is normal express.js middleware.
+A middleware file exports a *middleware factory*, to which you can pass options. The factory function should return the actual *middleware callback*, which is normal express.js middleware.
 
 ```javascript
 module.exports = function myMiddlewareFactory (options) {
@@ -48,7 +66,7 @@ module.exports = function myMiddlewareFactory (options) {
 Then include and register the middleware in your project.
 
 ```javascript
-var myMiddleware = require('myMiddleware');
+var myMiddleware = require('./lib/middleware/myMiddleware');
 asimov.middleware(myMiddleware());
 ```
 
@@ -56,7 +74,7 @@ asimov.middleware(myMiddleware());
 
 It is possible to hook into several different steps in the request handling lifecycle.
 
-Pre-middleware is executed before any other middleware and could be used to override the enire normal request lifecycle and middleware chain.
+Pre-middleware is executed before any other middleware and could be used to override the entire normal request lifecycle and middleware chain.
 
 ```javascript
 var overrideEverything = require('overrideEverything');
@@ -70,26 +88,17 @@ var myCustom404Logger = require('myCustom404Logger');
 asimov.postmiddleware(myCustom404Logger());
 ```
 
-Beware, when the pre-middleware is executed, the response will not have been equiped with any caching headers yet, so if you send a response, you might want to take of this on your own.
+Beware, when the pre-middleware is executed, the response will not have been equipped with any caching headers yet, so if you send a response, you might want to take of that on your own.
 
 ---
 
-## Develop
+## Develop and contribute
 
-First, fork this repo. Obviously.
+1. First, fork this repo.
+2. Implement something awesome
+3. Write tests and run them with ```npm test```
+4. Submit a pull request
 
-### Install dependencies
+### Credits
 
-    $ npm install
-
-### Run tests
-
-    $ npm test
-
-### Publish to npm
-
-    $ make publish
-
----
-
-Made by [Adam Renklint](http://adamrenklint.com), Berlin 2014. [MIT licensed](https://github.com/adamrenklint/asimov.js/blob/master/LICENSE).
+Author: [Adam Renklint](http://adamrenklint.com).
