@@ -74,14 +74,14 @@ asimov.middleware(myMiddleware());
 
 It is possible to hook into several different steps in the request handling lifecycle.
 
-Pre-middleware is executed before any other middleware and could be used to override the entire normal request lifecycle and middleware chain.
+*Pre-middleware* is executed before any other middleware and could be used to override the entire normal request lifecycle and middleware chain.
 
 ```javascript
 var overrideEverything = require('overrideEverything');
 asimov.premiddleware(overrideEverything());
 ```
 
-You can also hook in middleware right after the server has tried to serve content from the static source folder, if no content was found. With this you could, for example, add a custom logger to keep track of the amount of served 404s.
+With *post-middleware*, you also hook in middleware right after the server has tried to serve content from the static source folder, if no content was found. With this you could, for example, add a custom logger to keep track of the amount of served 404s.
 
 ```javascript
 var myCustom404Logger = require('myCustom404Logger');
