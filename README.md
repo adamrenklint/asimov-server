@@ -8,7 +8,7 @@ asimov-server
 
 Made by [Adam Renklint](http://adamrenklint.com), Berlin 2014. [MIT licensed](https://github.com/adamrenklint/asimov-server/blob/master/LICENSE).
 
-[asimov-server](http://asimovjs.org/docs/server) is built as a high-performance companion for the [asimov-pages](http://asimovjs.org/docs/pages) static site generator, and uses a cluster of workers to serve static pages. To customize the request/response flow, you can use express.js compatible middleware.
+[asimov-server](http://asimovjs.org/docs/server) is a high-performance static server based on [express.js](http://expressjs.com/). It uses a cluster of workers to serve a static site built with [asimov-pages](http://asimovjs.org/docs/pages), allowing you to customize the request/response flow with express.js middleware.
 
 ## Getting started
 
