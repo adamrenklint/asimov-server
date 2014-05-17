@@ -6,13 +6,13 @@ asimov.isWorker = cl.isWorker;
 var middleware = require('./lib/init/middleware');
 var cluster = require('./lib/init/cluster');
 
-module.exports = function (options) {
+module.exports = function pluginFactory (options) {
 
   options = options || {};
 
   // declare the default options
 
-  return function () {
+  return function plugin () {
 
     asimov.config.serverLogDelay = asimov.config.serverLogDelay || 'x';
 
@@ -40,7 +40,7 @@ module.exports = function (options) {
   module.exports[name] = require('./lib/' + path);
 });
 
-module.exports.start = function start (next) {
+module.exports.start = function bootstrap (next) {
 
   asimov
     .use(module.exports())

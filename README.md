@@ -24,10 +24,12 @@ To use the server plugin, add it in your app's plugin hook, in ```index.js``` an
 var asimov = require('asimov');
 var server = require('asimov-server');
 
-// Keeping all our setup in this function allows our
+// Keeping all our setup in this format allows our
 // app to be used as a plugin by other projects
-module.exports = function plugin (options) {
-  asimov.use(server(options));
+module.exports = function pluginFactory (options) {
+  return function plugin () {
+    asimov.use(server(options));
+  }
 };
 
 // The project bootstrap, using our app as a plugin
@@ -79,8 +81,10 @@ And load the initializer in the plugin hook.
 ```javascript
 // index.js
 var myMiddlewareInit = require('./lib/init/myMiddlewareInit');
-module.exports = function plugin (options) {
-  asimov.init(myMiddlewareInit(options));
+module.exports = function pluginFactory (options) {
+  return function plugin () {
+    asimov.init(myMiddlewareInit(options));
+  };
 };
 ```
 
