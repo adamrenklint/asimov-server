@@ -8,7 +8,7 @@ asimov-server
 
 Made by [Adam Renklint](http://adamrenklint.com), Berlin 2014. [MIT licensed](https://github.com/adamrenklint/asimov-server/blob/master/LICENSE).
 
-[asimov-server](http://asimovjs.org/docs/server) is a high-performance static server based on [express.js](http://expressjs.com/). It uses a cluster of workers to serve a static site built with [asimov-pages](http://asimovjs.org/docs/pages), allowing you to customize the request/response flow with express.js middleware.
+[asimov-server](http://asimovjs.org/docs/server) is a high-performance static server based on [express.js](http://expressjs.com/). It uses a cluster of workers to serve a static site built with [asimov-pages](http://asimovjs.org/docs/pages) and allows you to customize the request/response flow with express.js middleware.
 
 ## Getting started
 
@@ -45,7 +45,7 @@ module.parent || module.exports.start();
 
 ```javascript
 asimov.use(server({
-  'src': 'build' // source directory for static pages and assets
+  'src': 'public' // source directory for static pages and assets
 }));
 ```
 
@@ -54,6 +54,7 @@ asimov.use(server({
 A middleware file exports a *middleware factory*, to which you can pass options. The factory function should return the actual *middleware callback*, which is normal express.js middleware.
 
 ```javascript
+// lib/middleware/myMiddleware.js
 module.exports = function myMiddlewareFactory (options) {
   // do some config with options
   return function myMiddleware (req, res, next) {
@@ -63,11 +64,24 @@ module.exports = function myMiddlewareFactory (options) {
 };
 ```
 
-Then include and register the middleware in your project.
+Then include and register the middleware in your project. To keep the plugin hook nice and tidy, always add your middleware inside of an initializer.
 
 ```javascript
-var myMiddleware = require('./lib/middleware/myMiddleware');
-asimov.middleware(myMiddleware());
+// lib/init/myMiddlewareInit.js
+var myMiddleware = require('../middleware/myMiddleware');
+module.exports = function plugin (options) {
+  asimov.middleware(myMiddleware(options));
+};
+```
+
+And load the initializer in the plugin hook.
+
+```javascript
+// index.js
+var myMiddlewareInit = require('./lib/init/myMiddlewareInit');
+module.exports = function plugin (options) {
+  asimov.init(myMiddlewareInit(options));
+};
 ```
 
 ### Pre and post middleware
