@@ -14,8 +14,9 @@ module.exports = function pluginFactory (options) {
 
   return function plugin () {
 
-    asimov.config('serverLogDelay', 1);
-    
+    asimov.config('serverLogDelay', 15);
+    asimov.config('workerLogDelay', 5);
+
     [
       'premiddleware',
       'middleware',
