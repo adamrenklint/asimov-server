@@ -8,7 +8,7 @@ asimov-server
 
 Made by [Adam Renklint](http://adamrenklint.com), Berlin 2014. [MIT licensed](https://github.com/adamrenklint/asimov-server/blob/master/LICENSE).
 
-[asimov-server](http://asimovjs.org/docs/server) is a high-performance static server based on [express.js](http://expressjs.com/). It uses a cluster of workers to serve a static site built with [asimov-pages](http://asimovjs.org/docs/pages) and allows you to customize the request/response flow with express.js middleware.
+[asimov-server](http://asimovjs.org/docs/server) is a high-performance static server based on [express.js](http://expressjs.com/). It uses a cluster of workers to serve a static site, built with [asimov-pages](http://asimovjs.org/docs/pages) or any other way,  and allows you to customize the request/response flow with super-charged express.js middleware.
 
 ## Getting started
 
@@ -90,7 +90,7 @@ module.exports = function pluginFactory (options) {
 
 ### Pre and post middleware
 
-It is possible to hook into several different steps in the request handling lifecycle.
+Unlike in vanilla express.js app, it's possible to hook into several different steps in the request handling lifecycle.
 
 *Pre-middleware* is executed before any other middleware and could be used to override the entire normal request lifecycle and middleware chain.
 
