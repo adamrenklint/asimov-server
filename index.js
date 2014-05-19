@@ -10,8 +10,8 @@ module.exports = function pluginFactory (options) {
 
   options = options || {};
 
-  asimov.config('serverLogDelay', options.serverLogDelay || 15);
-  asimov.config('workerLogDelay', options.workerLogDelay || 5);
+  asimov.config('server.progressLogInterval', options.progressLogInterval || 15);
+  asimov.config('server.workerReportInterval', options.workerReportInterval || 5);
 
   return function plugin () {
 
