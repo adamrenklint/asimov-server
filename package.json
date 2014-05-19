@@ -24,7 +24,7 @@
     "url": "https://github.com/adamrenklint/asimov-server/issues"
   },
   "dependencies": {
-    "asimov": "^0.18.3",
+    "asimov": "^0.18.4",
     "cluster": "^0.7.7",
     "lodash": "^2.4.1"
   },

@@ -26,16 +26,14 @@ var server = require('asimov-server');
 
 // Keeping all our setup in this format allows our
 // app to be used as a plugin by other projects
-module.exports = function pluginFactory (options) {
-  return function plugin () {
-    asimov.use(server(options));
-  }
+module.exports = function plugin (options) {
+  asimov.use(server);
 };
 
 // The project bootstrap, using our app as a plugin
 module.exports.start = function bootstrap () {
   asimov
-    .use(module.exports())
+    .use(module.exports)
     .start();
 };
 
@@ -43,48 +41,38 @@ module.exports.start = function bootstrap () {
 module.parent || module.exports.start();
 ```
 
-## Options
+## Configuration
 
 ```javascript
-asimov.use(server({
-  'src': 'public' // source directory for static pages and assets
-}));
+asimov.config({
+  // the folder where the static content is located
+  'server.sourceDir': 'public',
+  // seconds, how often request counts are logged
+  'server.logInterval': 15,
+  // seconds, how often workers report request counts
+  'server.workerReportInterval': 5
+})
 ```
 
 ## Middleware
 
-A middleware file exports a *middleware factory*, to which you can pass options. The factory function should return the actual *middleware callback*, which is normal express.js middleware.
+Create or use regular express.js *middleware*.
 
 ```javascript
 // lib/middleware/myMiddleware.js
-module.exports = function myMiddlewareFactory (options) {
-  // do some config with options
-  return function myMiddleware (req, res, next) {
-    // do some logic
-    next()
-  };
+module.exports = function myMiddleware (req, res, next) {
+  // do some
+  next()
 };
 ```
 
-Then include and register the middleware in your project. To keep the plugin hook nice and tidy, always add your middleware inside of an initializer.
-
-```javascript
-// lib/init/myMiddlewareInit.js
-var myMiddleware = require('../middleware/myMiddleware');
-module.exports = function plugin (options) {
-  asimov.middleware(myMiddleware(options));
-};
-```
-
-And load the initializer in the plugin hook.
+Then include and register the middleware in your project's plugin hook.
 
 ```javascript
 // index.js
-var myMiddlewareInit = require('./lib/init/myMiddlewareInit');
-module.exports = function pluginFactory (options) {
-  return function plugin () {
-    asimov.init(myMiddlewareInit(options));
-  };
+var myMiddleware = require('./lib/middleware/myMiddleware');
+module.exports = function plugin () {
+  asimov.middleware(myMiddleware);
 };
 ```
 
