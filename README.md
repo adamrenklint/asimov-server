@@ -84,14 +84,14 @@ Unlike in vanilla express.js app, it's possible to hook into several different s
 
 ```javascript
 var overrideEverything = require('overrideEverything');
-asimov.premiddleware(overrideEverything());
+asimov.premiddleware(overrideEverything);
 ```
 
 With *post-middleware*, you also hook in middleware right after the server has tried to serve content from the static source folder, if no content was found. With this you could, for example, add a custom logger to keep track of the amount of served 404s.
 
 ```javascript
 var myCustom404Logger = require('myCustom404Logger');
-asimov.postmiddleware(myCustom404Logger());
+asimov.postmiddleware(myCustom404Logger);
 ```
 
 Beware, when the pre-middleware is executed, the response will not have been equipped with any caching headers yet, so if you send a response, you might want to take of that on your own.
