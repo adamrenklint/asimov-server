@@ -10,12 +10,10 @@ module.exports = function pluginFactory (options) {
 
   options = options || {};
 
-  // declare the default options
+  asimov.config('serverLogDelay', options.serverLogDelay || 15);
+  asimov.config('workerLogDelay', options.workerLogDelay || 5);
 
   return function plugin () {
-
-    asimov.config('serverLogDelay', 15);
-    asimov.config('workerLogDelay', 5);
 
     [
       'premiddleware',
