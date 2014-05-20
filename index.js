@@ -19,6 +19,7 @@ module.exports = function plugin () {
     .config('server.sourceDir', process.cwd() + '/public')
     .config('server.logInterval', 15)
     .config('server.workerReportInterval', 5)
+    .middleware(require('./lib/middleware/notFound'))
     .postinit(require('./lib/init/cluster'));
 };
 
