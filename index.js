@@ -16,10 +16,15 @@ module.exports = function plugin () {
     asimov.addSequence(name);
   });
 
+  var port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3003;
+
   asimov
     .config('server.sourceDir', process.cwd() + '/public')
     .config('server.logInterval', 15)
     .config('server.workerReportInterval', 5)
+    .config('server.port', port)
+    .config('server.liveReload', true)
+    .config('server.liveReloadPort', port + 100)
     .middleware(require('./lib/middleware/notFound'))
     .postinit(require('./lib/init/cluster'));
 };
