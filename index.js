@@ -1,7 +1,7 @@
 var cl = require('cluster');
 // TODO: this should be done with env.ROLE === 'server_worker'
 // Needs to be defined right away, to mute server workers from startup logs
-global.muteLog = cl.isWorker;
+// global.muteLog = cl.isWorker;
 
 var asimov = require('asimov');
 asimov.isWorker = cl.isWorker;
