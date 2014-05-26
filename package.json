@@ -24,11 +24,12 @@
     "url": "https://github.com/adamrenklint/asimov-server/issues"
   },
   "dependencies": {
-    "asimov": "^0.19.1",
+    "asimov": "^0.19.2",
     "cluster": "^0.7.7",
     "express": "^4.2.0",
     "express-livereload": "0.0.24",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "tcp-port-used": "^0.1.2"
   },
   "devDependencies": {
     "asimov-test": "^0.1.1"

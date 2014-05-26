@@ -2,7 +2,7 @@ var cl = require('cluster');
 if (cl.isWorker) process.env.ROLE = 'server_worker';
 
 var asimov = require('asimov');
-asimov.isWorker = cl.isWorker;
+asimov.config('IS_SERVER_WORKER', cl.isWorker);
 
 module.exports = function plugin () {
 
@@ -29,7 +29,7 @@ module.exports = function plugin () {
 
 // Export public classes
 [
-  'Cluster',
+  'Master',
   'Worker'
 ].forEach(function (path) {
 
