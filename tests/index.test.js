@@ -9,7 +9,7 @@ test('module index', function (test) {
   });
 
   [
-    'Cluster',
+    'Master',
     'Worker'
   ].forEach(function (name) {
 
