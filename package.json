@@ -26,6 +26,7 @@
   "dependencies": {
     "asimov": "^0.19.2",
     "cluster": "^0.7.7",
+    "compression": "^1.0.2",
     "express": "^4.2.0",
     "express-livereload": "0.0.24",
     "lodash": "^2.4.1",
