@@ -23,7 +23,6 @@ module.exports = function plugin () {
     .config('server.port', port)
     .config('server.liveReload', true)
     .config('server.liveReloadPort', port + 100)
-    .middleware(require('./lib/middleware/notFound'))
     .postinit(require('./lib/init/cluster'));
 };
 
