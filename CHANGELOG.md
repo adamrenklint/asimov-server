@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- **Released Saturday May 31st, 2014 @ 9.25pm**
+- Fix issue with cluster workers not being properly killed when receiving SIGINT or SIGTERM signal
+
 ## 0.1.1
 
 - **Released Saturday May 31st, 2014 @ 2.20pm**
