@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- **Released Friday July 11th, 2014 @ 2.25pm**
+- Stop logging progress if ```asimov.config('state')``` is ```stopping```
+
 ## 0.1.2
 
 - **Released Saturday May 31st, 2014 @ 9.25pm**
