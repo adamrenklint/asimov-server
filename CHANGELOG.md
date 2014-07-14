@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+
+- **Released Monday July 14th, 2014 @ 1.55pm**
+- Simplified cluster post-initializer, fixes issue where added middleware is always executed before the standard middlewares
+
 ## 0.1.3
 
 - **Released Friday July 11th, 2014 @ 2.25pm**
