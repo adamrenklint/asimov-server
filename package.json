@@ -1,6 +1,6 @@
 {
   "name": "asimov-server",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "http://asimovjs.org/docs/server",
   "description": "High performance static server cluster plugin for asimov.js",
   "author": "Adam Renklint <adam@renklint.com> (http://adamrenklint.com)",

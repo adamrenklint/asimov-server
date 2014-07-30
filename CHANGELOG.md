@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+- **Released Wednesday July 30th, 2014 @ 7.30pm**
+- Expose /health endpoint for service discovery
+
 ## 0.1.4
 
 - **Released Monday July 14th, 2014 @ 1.55pm**
