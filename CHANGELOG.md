@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0
+
+- **Released Saturday September 27th, 2014 @ 10.15pm**
+- Version 1.0 means the API is stable, and all future additions and changes will follow semantic versioning
+
 ## 0.1.5
 
 - **Released Wednesday July 30th, 2014 @ 7.30pm**
