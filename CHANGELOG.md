@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+
+- **Released Tuesday December 16th, 2014 @ 3.30pm**
+- Send data from worker process to server worker with ```asimov.trigger("public:serverVariables", "baz", { "foo": "bar" })```, will be available with ```asimov.config("server.data").baz.foo```
+
 ## 1.1.0
 
 - **Released Friday November 28th, 2014 @ 5.55pm**
