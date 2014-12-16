@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+
+- **Released Tuesday December 16th, 2014 @ 5.10pm**
+- A server worker process (i.e. middleware) can request and wait for data from its master process, using ```asimov.requestData(query, callback)``` and ```asimov.handleDataRequest(function (data, next) {})```
+
 ## 1.2.0
 
 - **Released Tuesday December 16th, 2014 @ 3.30pm**

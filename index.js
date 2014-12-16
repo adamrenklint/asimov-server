@@ -15,8 +15,11 @@ module.exports = function plugin () {
   });
 
   var port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3003;
+  var pipeline = require('./lib/pipeline');
 
   asimov
+    .register('requestData', pipeline.requestData)
+    .register('handleDataRequest', pipeline.handleDataRequest)
     .config('server.sourceDir', process.cwd() + '/public')
     .config('server.logInterval', 15)
     .config('server.workerReportInterval', 5)
