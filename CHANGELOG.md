@@ -3,6 +3,7 @@
 ## 1.4.0
 
 - Move ```/health``` ping endpoint to end of middleware stack, so it can be overriden/skipped
+- Fix errors when interrupting the process on node 0.12
 
 ## 1.3.0
 
