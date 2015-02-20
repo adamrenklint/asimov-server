@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0
+
+- Move ```/health``` ping endpoint to end of middleware stack, so it can be overriden/skipped
+
 ## 1.3.0
 
 - **Released Tuesday December 16th, 2014 @ 5.10pm**

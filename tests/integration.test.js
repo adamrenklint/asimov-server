@@ -7,3 +7,11 @@ test('integration /index.html', function (test) {
     test.itShould.loadPage();
   });
 });
+
+test('integration /health', function (test) {
+
+  test.integration('/health', function () {
+
+    test.itShould.loadPage();
+  });
+});
