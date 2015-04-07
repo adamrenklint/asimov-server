@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.0
+
+- Set Cache-Control header to ```public, max-age=31536000``` for requests that reach static serve middleware
+
 ## 1.4.0
 
 - Move ```/health``` ping endpoint to end of middleware stack, so it can be overriden/skipped
