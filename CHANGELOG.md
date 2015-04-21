@@ -2,7 +2,9 @@
 
 ## 1.5.0
 
+- **Released Tuesday April 21st, 2015 @ 8.55pm**
 - Set Cache-Control header to ```public, max-age=31536000``` for requests that reach static serve middleware
+- Use asimov 1.3
 
 ## 1.4.0
 
